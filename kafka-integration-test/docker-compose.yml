@@ -8,6 +8,7 @@ services:
     ports:
       - "2181:2181"
     restart: unless-stopped
+    
   kafka:
     image: wurstmeister/kafka
     container_name: kafka
@@ -20,8 +21,7 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     restart: unless-stopped    
-    depends_on:
-      - zookeeper
+
 
   prometheus:
     image: prom/prometheus:latest
